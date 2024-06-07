@@ -19,11 +19,11 @@ use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: PublicationRepository::class)]
 #[ApiResource(operations: [
-    new GetCollection(),
     new Get(),
-    new Post(input: CreateDto::class),
-    new Put(input: CreateDto::class),
-    new Patch(input: UpdateDto::class),
+    new GetCollection(),
+    new Post(input: CreateDto::class, output: Publication::class),
+    new Put(input: CreateDto::class, output: Publication::class),
+    new Patch(input: UpdateDto::class, output: Publication::class),
     new Delete()
 ])]
 class Publication

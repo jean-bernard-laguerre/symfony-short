@@ -8,12 +8,12 @@ final class CreateDto
 {
     #[Assert\NotBlank]
     #[Assert\Length(min: 1, max: 255)]
-    public ?string $content = null;
+    public string $content;
 
     #[Assert\NotBlank]
     #[Assert\DateTime]
-    public ?\DateTimeInterface $date = null;
-    
+    public \DateTimeInterface $date;
+
     #[Assert\NotBlank]
-    public ?int $author = null;
+    public int $author;
 }
