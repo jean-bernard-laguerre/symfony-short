@@ -3,14 +3,29 @@
 namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\Delete;
+use ApiPlatform\Metadata\Post;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\GetCollection;
+use ApiPlatform\Metadata\Patch;
+use ApiPlatform\Metadata\Put;
+use App\Dto\Publication\CreateDto;
+use App\Dto\Publication\UpdateDto;
 use App\Repository\PublicationRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ApiResource]
 #[ORM\Entity(repositoryClass: PublicationRepository::class)]
+#[ApiResource(operations: [
+    new GetCollection(),
+    new Get(),
+    new Post(input: CreateDto::class),
+    new Put(input: CreateDto::class),
+    new Patch(input: UpdateDto::class),
+    new Delete()
+])]
 class Publication
 {
     #[ORM\Id]

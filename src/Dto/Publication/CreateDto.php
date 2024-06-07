@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Dto;
+namespace App\Dto\Publication;
 
 use Symfony\Component\Validator\Constraints as Assert;
 
-final class PublicationDto
+final class CreateDto
 {
     #[Assert\NotBlank]
     #[Assert\Length(min: 1, max: 255)]
